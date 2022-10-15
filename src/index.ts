@@ -1,5 +1,11 @@
-const myName = 'Omar'
+import express from 'express'
+const app = express()
+const PORT = 3000 || process.env.PORT
+import router from './routes/index'
 
-const hello = (userName: string): string => `hello ${userName}`
+app.use('/api', router)
 
-console.log(hello(myName))
+
+app.listen(PORT, () => {
+    console.log(`Server running on port ${PORT}`)
+})
